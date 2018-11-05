@@ -60,6 +60,7 @@ void loop() {
   delay(500);                          // Delay 1 second before restart
   
 //  For Firebase Receive Humidity
+  if (humid <= 100) {
   Firebase.setInt("Humidity", humid);
   if (Firebase.failed()) {
     Serial.print("set /Humidity failed:");
@@ -68,15 +69,20 @@ void loop() {
   }
   Serial.print("set /Humidity to ");
   Serial.println(Firebase.getInt("Humidity"));
+    
+    } // if 
 
   // For Firebase Receive Temperature
-   Firebase.setInt("Temp",temp);if (Firebase.failed()) {
+   if (temp <= 50) {Firebase.setInt("Temp",temp);if (Firebase.failed()) {
     Serial.print("set /Temp failed:");
     Serial.println(Firebase.error());
     return;
   }
   Serial.print("set /Temp to ");
   Serial.println(Firebase.getInt("Temp"));
+
+    
+    } // if 
 
   delay(500);
 }
