@@ -107,11 +107,12 @@ int alertHumid = 0;  //0 ==> Safe , 1 ==> Over
 int alertTemp = 0; //0 ==> Safe , 1 ==> Over
 int alertBuzzer = 0; //0 ==> Alert , 1 ==> Silent
 
-  alertHumid = Firebase.getInt("alertHumid");
-  alertTemp = Firebase.getInt("alertTemp");
+  alertHumid = Firebase.getInt("/MyHmid/Humid");
+  alertTemp = Firebase.getInt("MyTemp/alertTemp");
 
   Serial.print("alertHumid ==> ");
   Serial.println(alertHumid);
+
 
   Serial.print("alertTemp ==> ");
   Serial.println(alertTemp);
